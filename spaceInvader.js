@@ -1,61 +1,29 @@
 "use strict";
 
-alert("Draw your space invader here");
+drawSpaceInvador();
 
-drawSunset();
+function drawSpaceInvador() {
+	let canvas = document.querySelector("canvas");
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	let context = canvas.getContext("2d");
 
-function drawSunset() {
+	context.fillStyle = "black";
+	context.fillRect(50, 50, 350, 350);
 
-   let canvas = document.querySelector("canvas");
-   canvas.width = window.innerWidth;
-   canvas.height = window.innerHeight;
-   let context = canvas.getContext("2d");
-    
+	context.fillStyle = "lightGreen";
 
-   context.fillStyle = "black"
+	context.beginPath();
+	context.fillRect(100, 100, 250, 250);
+	context.fill();
 
-   context.beginPath();
-   context.moveTo(50, 50);
-   context.lineTo(350, 50);
-   context.lineTo(350, 350);
-   context.lineTo(50, 350);
-   context.lineTo(50, 50);
-   context.fill();
+	context.fillStyle = "black";
 
-   context.fillStyle = "lightGreen"
-    
-   context.beginPath();
-   context.moveTo(100,100);
-   context.lineTo (100,150);
-   context.lineTo(130,150);
-   context.lineTo(130,130);
-   context.lineTo(170,130);
-   context.lineTo(170,100);
-   context.lineTo(100,100);
-   context.fill();
-
-   context.beginPath();
-   context.moveTo(225,100);
-   context.lineTo(300,100);
-   context.lineTo(300,150);
-   context.lineTo(270,150);
-   context.lineTo(270,130);
-   context.lineTo(225,130)
-   context.fill();
-
-   context.beginPath();
-   context.rect(130,150,140,30);
-   context.fill();
-
-   context.beginPath();
-   context.rect(100,180,200,100);
-   context.fill();
-
-   context.fillStyle = "white";
-
-   context.beginPath();
-   context.rect(175,180,50,50)
-   context.fill();
-
+	context.fillRect(200, 100, 50, 50);
+	context.fillRect(200, 150, 50, 50);
+	context.fillRect(150, 150, 50, 50);
+	context.fillRect(250, 150, 50, 50);
+	context.fillRect(100, 200, 50, 50);
+	context.fillRect(300, 200, 50, 50);
+	context.fillRect(200, 250, 50, 50);
 }
-

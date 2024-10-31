@@ -3,37 +3,31 @@ import context from "../../scripts/context.js";
 import * as Utils from "../../scripts/utils.js";
 import * as Noise from "../../scripts/noise.js";
 
-let width = context.canvas.width;
-let height = context.canvas.height;
+let w = context.canvas.width;
+let h = context.canvas.height;
 let size = 800;
 draw();
 function draw() {
-context.fillRect(0, 0, width, height);
+context.fillRect(0, 0, w, h);
 drawNoiseCircle();
 }
 
-function drawNoiseCircle() {
-    for (let i = 0; i < 35; i++) {
 
-        context.fillStyle = Utils.hsla(i*36, 0, Math.random() * 100, 50);
-		context.fillText("MCT", Math.random() * width, Math.random() * height);
+
+function drawNoiseCircle() {
+
+	context.fillStyle = "black"
+	context.fillRect(0, 0, w, h);
+	for(let j = 0; j < 20; j++){
+        context.fillStyle = Utils.hsla(0, 0, Math.random() * 100, 50);
+		context.fillText("MCT", Math.random() * w, Math.random() * h);
 		context.font = "normal 60pt Arial";
 
-        context.fillStyle = Utils.hsl(i * 12, 100, 50);
-        for (let j = 0; j < size; j++) {
-            let x = (width / 2) - (size / 2) + j;
-            let y = Noise.perlinNoise(j / 400) * size;
-            Utils.fillCircle(x, y + i * 25, 4);
-        }
-    }
-context.lineWidth = size / 3;
-Utils.strokeCircle(width / 2, height / 2, size * 5 / 8);
-context.fillStyle = "black";
-context.fillRect(width / 2 - size / 2 - 10, 0, size + 20, (height - size) / 2);
-context.fillRect(width / 2 - size / 2 - 10, (height - size) / 2 + size, size + 20, (height - size) / 2);
-context.textAlign = "center";
-context.fillStyle = "gray";
-context.font = "bold 24pt Arial";
-context.fillText(Noise.getSeed(), width / 2, height - 50);
+	context.fillStyle = Utils.hsl(j*36, 100, 50);
+	for (let i = 0; i < w; i++) {
+		let y = Noise.perlinNoise(i / 200);
+		Utils.fillCircle(i, y*h - 200 + j * 40, 5);
+	}
+}
 
 }

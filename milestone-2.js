@@ -5,13 +5,22 @@ import * as Noise from "../../scripts/noise.js";
 
 let w = context.canvas.width;
 let h = context.canvas.height;
-let size = 800;
+
 draw();
 function draw() {
 context.fillRect(0, 0, w, h);
 drawNoiseCircle();
 }
+window.onmousemove = move;
+/**
+@param {mouseEvent} eventData
+ */
 
+
+function move(eventData) {
+	let x = eventData.pageX;
+	let y = eventData.pageY;
+}
 
 
 function drawNoiseCircle() {

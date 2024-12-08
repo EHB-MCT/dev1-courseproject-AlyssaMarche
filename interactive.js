@@ -10,29 +10,29 @@ import * as Noise from "../../scripts/noise.js";
 let width = context.canvas.width;
 let height = context.canvas.height;
 
-let xPositions = [];
-let yPositions = [];
+let snow = [];
+let speed = 2;
+setup();
+animateSnow();
 
-for (let i = 0; i < 100; i++) {
-	xPositions.push(Utils.randomNumber(0, width));
-	yPositions.push(Utils.randomNumber(0, height));
+function setup() {
+	for (let i = 0; i < 100; i++) {
+		let snowFlake = {
+			x: width,
+			y: Math.random() * height,
+			speed: 3
+		};
+	}
 }
 
-snow();
-function snow() {
+function animateSnow() {
 	context.fillStyle = "darkblue";
 	Utils.fillRect(0, 0, width, height);
 
-	for (let i = 0; i < xPositions.length; i++) {
-		context.fillStyle = "darkblue";
-		Utils.fillRect(0, 0, width, height);
-		drawSnowflake(xPositions, yPositions, 50, 5, 6);
-        yPositions[i] += 1; 
-
-        if (yPositions[i] > height){
-            yPositions[i] = 0; 
-            xPositions[i] = Utils.randomNumber(0, width);
-        }
+	for (let i = 0; i < snow.length; i++) {
+		snow[i].x +=
+		snow[i].y += Utils.randomNumber(-6,6);
+		drawSnowflake(snow.x, snow.y, 50, 5, 6);
 	}
 	requestAnimationFrame(snow);
 }

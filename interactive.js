@@ -15,32 +15,9 @@ let speed = 2;
 
 setup();
 animateCandyCane();
-drawSpaceInvador();
 
-function drawSpaceInvador() {
-		let canvas = document.querySelector("canvas");
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
-		let context = canvas.getContext("2d");
-	
-		context.fillStyle = "green";
-		context.fillRect(850, 350, 350, 350);
-	
-		context.fillStyle = "lightGreen";
-		context.beginPath();
-		context.fillRect(900, 400, 250, 250);
-		context.fill();
-	
-		context.fillStyle = "green";
-		context.fillRect(1000, 400, 50, 50);
-		context.fillRect(1000, 550, 50, 50);
-		context.fillRect(1050, 450, 50, 50);
-		context.fillRect(1000, 450, 50, 50);
-		context.fillRect(950, 450, 50, 50);
-		context.fillRect(1100, 500, 50, 50);
-		context.fillRect(900, 500, 50, 50);
-	}
-	
+
+
 
 function setup() {
 
@@ -55,6 +32,21 @@ function setup() {
     }
 
 }
+function drawSpaceInvader() {	
+	context.fillStyle = "lightGreen";
+	context.beginPath();
+	context.fillRect(1100, 500, 250, 250);
+	context.fill();
+
+	context.fillStyle = "green";
+	context.fillRect(1200, 500, 50, 50);
+	context.fillRect(1200, 650, 50, 50);
+	context.fillRect(1250, 550, 50, 50);
+	context.fillRect(1200, 550, 50, 50);
+	context.fillRect(1150, 550, 50, 50);
+	context.fillRect(1300, 600, 50, 50);
+	context.fillRect(1100, 600, 50, 50);
+}
 
 
 
@@ -62,8 +54,7 @@ function animateCandyCane() {
    
     context.fillStyle = "green";
     context.fillRect(0, 0, width, height);
-	
-	
+	drawSpaceInvader();
     for (let i = 0; i < candy.length; i++) {
         let candyCane = candy[i];
         candyCane.y += candyCane.speed; 
